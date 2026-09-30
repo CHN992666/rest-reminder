@@ -65,17 +65,17 @@ class TimerService : Service() {
 
     private fun enterWork() {
         val dur = TimeUnit.MINUTES.toMillis(settings.workMinutes.toLong())
-        enterState(TimerState.Work(dur))
+        enterState(TimerState.Work(dur), dur)
     }
 
     private fun enterShortRest() {
         val dur = TimeUnit.SECONDS.toMillis(settings.shortRestSeconds.toLong())
-        enterState(TimerState.ShortRest(dur))
+        enterState(TimerState.ShortRest(dur), dur)
     }
 
     private fun enterLongRest() {
         val dur = TimeUnit.MINUTES.toMillis(settings.longRestMinutes.toLong())
-        enterState(TimerState.LongRest(dur))
+        enterState(TimerState.LongRest(dur), dur)
     }
 
     private fun onPhaseFinished() {
